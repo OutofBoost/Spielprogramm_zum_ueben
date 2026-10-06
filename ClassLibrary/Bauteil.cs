@@ -7,7 +7,7 @@ namespace InstaGmbh.Test.ClassLibrary
     /// <summary>
     /// Repräsentiert ein Bauteil.
     /// </summary>
-    internal class Bauteil
+    public class Bauteil
     {
         private string _bezeichnung;
         private decimal _stückpreis;
@@ -32,6 +32,17 @@ namespace InstaGmbh.Test.ClassLibrary
         {
             get { return _stückzahl; }
             set { _stückzahl = value; }
+        }
+        public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl)
+        {
+            _bezeichnung = bezeichnung;
+            _stückpreis = stückpreis;
+            _stückzahl = stückzahl;
+        }
+
+        public decimal BerechneGesamtwert()
+        {
+            return _stückpreis * _stückzahl;
         }
     }
 }
