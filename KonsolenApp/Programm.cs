@@ -18,10 +18,10 @@ namespace InstaGmbH.Test.KonsolenApp
             Bauteil spule = new Bauteil();
             try
             {
-                spule = new Bauteil("Spule", -0.50m, 50);
+                spule = new Bauteil("Spule", 0.50m, -50);
 
             }
-            catch (BauteilkostenZurGering ex)
+            catch (StückzahlZuGering ex)
             {
                 Console.WriteLine($"Fehler: {ex.Message}");
             }

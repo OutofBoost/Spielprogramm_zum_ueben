@@ -34,7 +34,7 @@ namespace InstaGmbH.Test.ClassLibrary
                 }
                 else
                 {
-                    throw new BauteilkostenZurGering("Der Stückpreis muss größer als 0 sein!");
+                    throw new BauteilkostenZurGering($"Der Stückpreis von {Bezeichnung} muss größer als 0 sein!");
                 }
             }
         }
@@ -42,15 +42,25 @@ namespace InstaGmbH.Test.ClassLibrary
         public int Stückzahl
         {
             get { return _stückzahl; }
-            set { _stückzahl = value; }
+            set 
+            {
+                if (value > 0)
+                {
+                    _stückzahl = value;
+                }
+                else
+                {
+                    throw new StückzahlZuGering($"Die Stückzahl von {Bezeichnung} kann nicht negativ sein!");
+                }
+            }
         }
 
         public Bauteil() { }
         public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl)
         {
-            _bezeichnung = bezeichnung;
-            _stückpreis = stückpreis;
-            _stückzahl = stückzahl;
+            Bezeichnung = bezeichnung;
+            Stückpreis = stückpreis;
+            Stückzahl = stückzahl;
         }
 
         public decimal BerechneGesamtwert()
