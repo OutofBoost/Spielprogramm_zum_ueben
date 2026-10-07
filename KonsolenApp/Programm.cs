@@ -21,13 +21,17 @@ namespace InstaGmbH.Test.KonsolenApp
                 spule = new Bauteil("Spule", 0.50m, -50);
 
             }
-            catch (StückzahlZuGering ex)
+            catch (BauteilkostenZuGering ex)
+            {
+                Console.WriteLine($"Fehler: {ex.Message}");
+            }
+            catch(StückzahlZuGering ex)
             {
                 Console.WriteLine($"Fehler: {ex.Message}");
             }
 
-            widerstand.GetInfo();
-            spule.GetInfo();
+            Console.WriteLine(widerstand.GetInfo());
+            //spule.GetInfo();
         }
     }
 }

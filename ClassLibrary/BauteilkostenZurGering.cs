@@ -4,8 +4,8 @@ using System.Text;
 
 namespace InstaGmbH.Test.ClassLibrary
 {
-    public class BauteilkostenZurGering : Exception
+    public class BauteilkostenZuGering : Exception
     {
-                public BauteilkostenZurGering(string message) : base(message) { }
+                public BauteilkostenZuGering(string message) : base(message) { }
     }
 }
