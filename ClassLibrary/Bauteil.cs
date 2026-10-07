@@ -24,9 +24,9 @@ namespace InstaGmbH.Test.ClassLibrary
         public decimal Stückpreis
         {
             get { return _stückpreis; }
-            private set 
+            set 
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     _stückpreis = value;
 
@@ -41,7 +41,7 @@ namespace InstaGmbH.Test.ClassLibrary
         public int Stückzahl
         {
             get { return _stückzahl; }
-            private set 
+            set 
             {
                 if (value > 0)
                 {
@@ -55,7 +55,7 @@ namespace InstaGmbH.Test.ClassLibrary
         }
 
         public Bauteil() { }
-        public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl)
+        public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl) : base() 
         {
             _bezeichnung = bezeichnung;
             Stückpreis = stückpreis;
