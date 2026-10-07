@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InstaGmbh.Test.ClassLibrary
+namespace InstaGmbH.Test.ClassLibrary
 {
     /// <summary>
     /// Repräsentiert ein Bauteil.
@@ -14,7 +14,7 @@ namespace InstaGmbh.Test.ClassLibrary
         private int _stückzahl;
 
         /// <summary>
-        /// Initialisiert eine neue Instanz der <see cref="Bauteil"/>-Klasse.
+        /// Initialisiert neue Instanzen der <see cref="Bauteil"/>-Klasse.
         /// </summary>
         public string Bezeichnung
         {
@@ -25,7 +25,18 @@ namespace InstaGmbh.Test.ClassLibrary
         public decimal Stückpreis
         {
             get { return _stückpreis; }
-            set { _stückpreis = value; }
+            set 
+            {
+                if (value > 0)
+                {
+                    _stückpreis = value;
+
+                }
+                else
+                {
+                    throw new BauteilkostenZurGering("Der Stückpreis muss größer als 0 sein!");
+                }
+            }
         }
 
         public int Stückzahl
@@ -33,6 +44,8 @@ namespace InstaGmbh.Test.ClassLibrary
             get { return _stückzahl; }
             set { _stückzahl = value; }
         }
+
+        public Bauteil() { }
         public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl)
         {
             _bezeichnung = bezeichnung;
@@ -43,6 +56,11 @@ namespace InstaGmbh.Test.ClassLibrary
         public decimal BerechneGesamtwert()
         {
             return _stückpreis * _stückzahl;
+        }
+
+        public string GetInfo()
+        {
+            return $"Bauteil: {_bezeichnung}, Kosten pro Bauteil: {_stückpreis}€, Stückzahl: {_stückzahl}, Gesamtwert: {BerechneGesamtwert()}€";
         }
     }
 }

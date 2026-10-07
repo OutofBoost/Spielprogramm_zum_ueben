@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>InstaGmbh.Test.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <RootNamespace>InstaGmbH.Test.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
 </Project>
