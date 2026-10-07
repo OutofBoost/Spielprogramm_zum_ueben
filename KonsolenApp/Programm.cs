@@ -15,10 +15,9 @@ namespace InstaGmbH.Test.KonsolenApp
         internal static void Bauteile()
         {
             Bauteil widerstand = new Bauteil("Widerstand", 0.10m, 100);
-            Bauteil spule = new Bauteil();
             try
             {
-                spule = new Bauteil("Spule", 0.50m, -50);
+                Bauteil spule = new Bauteil("Spule", 0.50m, -50);
 
             }
             catch (BauteilkostenZuGering ex)
