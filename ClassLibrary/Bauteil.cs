@@ -9,7 +9,7 @@ namespace InstaGmbH.Test.ClassLibrary
     /// </summary>
     public class Bauteil
     {
-        private string _bezeichnung;
+        private readonly string _bezeichnung;
         private decimal _stückpreis;
         private int _stückzahl;
 
@@ -19,13 +19,12 @@ namespace InstaGmbH.Test.ClassLibrary
         public string Bezeichnung
         {
             get { return _bezeichnung; }
-            set { _bezeichnung = value; }
         }
 
         public decimal Stückpreis
         {
             get { return _stückpreis; }
-            set 
+            private set 
             {
                 if (value > 0)
                 {
@@ -34,7 +33,7 @@ namespace InstaGmbH.Test.ClassLibrary
                 }
                 else
                 {
-                    throw new BauteilkostenZurGering($"Der Stückpreis von {Bezeichnung} muss größer als 0 sein!");
+                    throw new BauteilkostenZuGering($"Der Stückpreis von {Bezeichnung} müss größer als 0 sein!");
                 }
             }
         }
@@ -42,7 +41,7 @@ namespace InstaGmbH.Test.ClassLibrary
         public int Stückzahl
         {
             get { return _stückzahl; }
-            set 
+            private set 
             {
                 if (value > 0)
                 {
@@ -58,7 +57,7 @@ namespace InstaGmbH.Test.ClassLibrary
         public Bauteil() { }
         public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl)
         {
-            Bezeichnung = bezeichnung;
+            _bezeichnung = bezeichnung;
             Stückpreis = stückpreis;
             Stückzahl = stückzahl;
         }
