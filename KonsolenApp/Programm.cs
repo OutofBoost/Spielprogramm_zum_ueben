@@ -17,7 +17,7 @@ namespace InstaGmbH.Test.KonsolenApp
             Widerstand widerstand = new Widerstand("Widerstand", "1k", Bauform.THT, 0.1m, 10);
             try
             {
-                Kondesator kondesator = new Kondesator("Kondesator", "1000µF", Bauform.THT, 0.2m, 5);
+                Kondesator kondesator = new Kondesator("Kondesator", "1000µF", Bauform.THT, -0.2m, 5);
 
             }
             catch (BauteilkostenZuGering ex)

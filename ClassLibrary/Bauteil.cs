@@ -63,7 +63,7 @@ namespace InstaGmbH.Test.ClassLibrary
 
         public Bauteil(Bauform bauform, string bezeichnung, decimal stückpreis, int stückzahl) 
         {
-
+            _bauform = bauform;
             _bezeichnung = bezeichnung;
             Stückpreis = stückpreis;
             Stückzahl = stückzahl;
