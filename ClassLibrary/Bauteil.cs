@@ -9,6 +9,7 @@ namespace InstaGmbH.Test.ClassLibrary
     /// </summary>
     public class Bauteil
     {
+        private Bauform _bauform;
         private readonly string _bezeichnung;
         private decimal _stückpreis;
         private int _stückzahl;
@@ -16,6 +17,12 @@ namespace InstaGmbH.Test.ClassLibrary
         /// <summary>
         /// Initialisiert neue Instanzen der <see cref="Bauteil"/>-Klasse.
         /// </summary>
+        public Bauform Bauform
+        {
+            get { return _bauform; }
+            set { _bauform = value; }
+        }
+
         public string Bezeichnung
         {
             get { return _bezeichnung; }
@@ -54,8 +61,9 @@ namespace InstaGmbH.Test.ClassLibrary
             }
         }
 
-        public Bauteil(string bezeichnung, decimal stückpreis, int stückzahl) 
+        public Bauteil(Bauform bauform, string bezeichnung, decimal stückpreis, int stückzahl) 
         {
+
             _bezeichnung = bezeichnung;
             Stückpreis = stückpreis;
             Stückzahl = stückzahl;
@@ -66,9 +74,9 @@ namespace InstaGmbH.Test.ClassLibrary
             return _stückpreis * _stückzahl;
         }
 
-        public string GetInfo()
+        public virtual string GetInfo()
         {
-            return $"Bauteil: {_bezeichnung}, Kosten pro Bauteil: {_stückpreis}€, Stückzahl: {_stückzahl}, Gesamtwert: {BerechneGesamtwert()}€";
+            return $"Bauform: {Bauform}, Kosten pro Bauteil: {_stückpreis}€, Stückzahl: {_stückzahl}, Gesamtwert: {BerechneGesamtwert()}€";
         }
     }
 }

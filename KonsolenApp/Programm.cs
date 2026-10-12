@@ -14,10 +14,10 @@ namespace InstaGmbH.Test.KonsolenApp
         /// </summary>
         internal static void Bauteile()
         {
-            Bauteil widerstand = new Bauteil("Widerstand", 0.10m, 100);
+            Widerstand widerstand = new Widerstand("Widerstand", "1k", Bauform.THT, 0.1m, 10);
             try
             {
-                Bauteil spule = new Bauteil("Spule", 0.50m, -50);
+                Kondesator kondesator = new Kondesator("Kondesator", "1000µF", Bauform.THT, 0.2m, 5);
 
             }
             catch (BauteilkostenZuGering ex)
