@@ -15,10 +15,10 @@ namespace InstaGmbH.Test.KonsolenApp
         internal static void Bauteile()
         {
             Widerstand widerstand = new Widerstand("Widerstand", "1k", Bauform.THT, 0.1m, 10);
-            Kondesator kondesator = new Kondesator("Kondesator", "1000µ", Bauform.THT, 0.2m, 5);
+            Kondensator kondensator = new Kondensator("Kondensator", "1000µ", Bauform.THT, 0.2m, 5);
             try
             {
-                //Kondesator kondesator = new Kondesator("Kondesator", "1000µF", Bauform.THT, 0.2m, 5);
+                //Kondensator kondensator = new Kondensator("Kondensator", "1000µF", Bauform.THT, 0.2m, 5);
 
             }
             catch (BauteilkostenZuGering ex)
@@ -30,9 +30,9 @@ namespace InstaGmbH.Test.KonsolenApp
                 Console.WriteLine($"Fehler: {ex.Message}");
             }
 
-            Console.WriteLine(kondesator.GetInfo());
-            Console.WriteLine(widerstand.GetInfo());
-            //spule.GetInfo();
+            Console.WriteLine(kondensator.GetType());
+            Console.WriteLine(kondensator.GetInfo());
         }
+
     }
 }

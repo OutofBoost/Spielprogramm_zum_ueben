@@ -40,7 +40,7 @@ namespace InstaGmbH.Test.ClassLibrary
                 }
                 else
                 {
-                    throw new BauteilkostenZuGering($"Der Stückpreis von {Bezeichnung} müss größer als 0 sein!");
+                    throw new BauteilkostenZuGering($"Der Stückpreis von {Bezeichnung} muss größer als 0 sein!");
                 }
             }
         }
