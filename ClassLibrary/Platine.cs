@@ -4,39 +4,62 @@ using System.Text;
 
 namespace InstaGmbH.Test.ClassLibrary
 {
-    internal class Platine
+    public class Platine
     {
         /// <summary>
         /// Initialisiert eine neue Instanz der <see cref="Platine"/>-Klasse.
         /// </summary>
         private string _platinenBezeichnung;
-        
+        private List<Bauteil> _bauteile = new List<Bauteil>();
+
         public string PlatinenBezeichnung
         {
             get { return _platinenBezeichnung; }
             set { _platinenBezeichnung = value; }
         }
-
-        private void Bauteilhinzufügen(Bauteil bauteil)
+        /// <summary>
+        /// Fügt ein Bauteil zur Platine hinzu.
+        /// </summary>
+        /// <param name="bauteil"></param>
+        public void Bauteilhinzufügen(Bauteil bauteil)
         {
-            // Logik zum Hinzufügen eines Bauteils zur Platine
+            _bauteile.Add(bauteil);
         }
-
-        private void Bauteilentfernen(Bauteil bauteil)
+        /// <summary>
+        /// Entfernt ein Bauteil von der Platine.
+        /// </summary>
+        /// <param name="bauteil"></param>
+        public void Bauteilentfernen(Bauteil bauteil)
         {
-            // Logik zum Entfernen eines Bauteils von der Platine
+            _bauteile.Remove(bauteil);
         }
-
-        private string StücklisteErstellen()
+        /// <summary>
+        /// Erstellt eine List der Bauteile auf der Platine.
+        /// </summary>
+        /// <returns></returns>
+        public string StücklisteErstellen()
         {
-            // Logik zur Erstellung einer Stückliste der Platine basierend auf den Bauteilen
-            return string.Empty; // Platzhalterwert
+            StringBuilder Stückliste = new StringBuilder();
+            foreach (var bauteil in _bauteile)
+            {
+                Stückliste.AppendLine($"Bezeichnung: {bauteil.Bezeichnung}, Bauform: {bauteil.Bauform}, Stückpreis: {bauteil.Stückpreis}, Stückzahl: {bauteil.Stückzahl}");
+            }
+            return Stückliste.ToString();
         }
-
-        private decimal BerechneGesamtkosten()
+        /// <summary>
+        /// Berechnet die Gesamtkosten der Platine basierend auf den Bauteilen.
+        /// </summary>
+        /// <returns></returns>
+        public decimal BerechneGesamtkosten()
         {
-            // Logik zur Berechnung der Gesamtkosten der Platine basierend auf den Bauteilen
-            return 0m; // Platzhalterwert
+            decimal gesamtkosten = 0;
+            foreach (var bauteil in _bauteile)
+            {
+                decimal kosten = bauteil.Stückpreis * bauteil.Stückzahl;
+                Console.WriteLine($"Bauteil: {bauteil.Bezeichnung}, Kosten: {kosten}");
+                gesamtkosten += kosten;
+            }
+            return gesamtkosten;
         }
     }
 }

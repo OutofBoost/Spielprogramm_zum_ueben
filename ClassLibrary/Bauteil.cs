@@ -44,7 +44,9 @@ namespace InstaGmbH.Test.ClassLibrary
                 }
             }
         }
-
+        /// <summary>
+        /// Gibt die Stückzahl des Bauteils zurück oder legt sie fest.
+        /// </summary>
         public int Stückzahl
         {
             get { return _stückzahl; }
@@ -60,7 +62,13 @@ namespace InstaGmbH.Test.ClassLibrary
                 }
             }
         }
-
+        /// <summary>
+        /// Initialisiert eine neue Instanz der <see cref="Bauteil"/>-Klasse.
+        /// </summary>
+        /// <param name="bauform"></param>
+        /// <param name="bezeichnung"></param>
+        /// <param name="stückpreis"></param>
+        /// <param name="stückzahl"></param>
         public Bauteil(Bauform bauform, string bezeichnung, decimal stückpreis, int stückzahl) 
         {
             _bauform = bauform;
@@ -68,7 +76,10 @@ namespace InstaGmbH.Test.ClassLibrary
             Stückpreis = stückpreis;
             Stückzahl = stückzahl;
         }
-
+        /// <summary>
+        /// Berechnet den Gesamtpreis des Bauteils basierend auf dem Stückpreis und der Stückzahl.
+        /// </summary>
+        /// <returns></returns>
         public decimal BerechneGesamtwert()
         {
             return _stückpreis * _stückzahl;
